@@ -1,0 +1,167 @@
+atk_lgn_train20
+eps:0
+{'precision': array([0.73083067]), 'recall': array([0.69086117]), 'ndcg': array([0.81771278])}
+eps:0.01
+{'precision': array([0.71709265]), 'recall': array([0.67901678]), 'ndcg': array([0.8031978])}
+eps:0.02
+{'precision': array([0.68690096]), 'recall': array([0.65251221]), 'ndcg': array([0.77053674])}
+eps:0.03
+{'precision': array([0.63961661]), 'recall': array([0.61089112]), 'ndcg': array([0.7171952])}
+eps:0.04
+{'precision': array([0.56719915]), 'recall': array([0.5473286]), 'ndcg': array([0.63557977])}
+eps:0.05
+{'precision': array([0.46892971]), 'recall': array([0.45926179]), 'ndcg': array([0.52268145])}
+eps:0.06
+{'precision': array([0.34949414]), 'recall': array([0.35170783]), 'ndcg': array([0.38355514])}
+eps:0.07
+{'precision': array([0.22161874]), 'recall': array([0.23345214]), 'ndcg': array([0.24175095])}
+eps:0.08
+{'precision': array([0.1149361]), 'recall': array([0.13151733]), 'ndcg': array([0.1270334])}
+eps:0.09
+{'precision': array([0.04810969]), 'recall': array([0.06473687]), 'ndcg': array([0.05690425])}
+eps:0.1
+{'precision': array([0.01562833]), 'recall': array([0.02969312]), 'ndcg': array([0.02242527])}
+
+
+random_lgn_train:20
+eps:0
+{'precision': array([0.73083067]), 'recall': array([0.69086117]), 'ndcg': array([0.81771278])}
+eps:0.01
+{'precision': array([0.73080405]), 'recall': array([0.69085517]), 'ndcg': array([0.81769405])}
+eps:0.02
+{'precision': array([0.73056443]), 'recall': array([0.69072776]), 'ndcg': array([0.81761484])}
+eps:0.03
+{'precision': array([0.73027157]), 'recall': array([0.69046487]), 'ndcg': array([0.81733561])}
+eps:0.04
+{'precision': array([0.72957934]), 'recall': array([0.68989002]), 'ndcg': array([0.81688036])}
+eps:0.05
+{'precision': array([0.72891374]), 'recall': array([0.68935406]), 'ndcg': array([0.81635957])}
+eps:0.06
+{'precision': array([0.72886049]), 'recall': array([0.68927184]), 'ndcg': array([0.81619978])}
+eps:0.07
+{'precision': array([0.72819489]), 'recall': array([0.68861309]), 'ndcg': array([0.81549823])}
+eps:0.08
+{'precision': array([0.7271033]), 'recall': array([0.68748673]), 'ndcg': array([0.8145445])}
+eps:0.09
+{'precision': array([0.72529286]), 'recall': array([0.68581198]), 'ndcg': array([0.81274561])}
+eps:0.1
+{'precision': array([0.72438765]), 'recall': array([0.6849589]), 'ndcg': array([0.81178034])}
+precision=[0.73083067,0.73080405,0.73056443,0.73027157,0.72957934,0.72891374,0.72886049,0.72819489,0.7271033,0.72529286,0.72438765]
+recall=[0.69086117,0.69085517,0.69072776,0.69046487,0.68989002,0.68935406,0.68927184,0.68861309,0.68748673,0.68581198,0.6849589]
+ndcg=[0.81771278,0.81769405,0.81761484,0.81733561,0.81688036,0.81635957,0.81619978,0.81549823,0.8145445,0.81274561,0.81178034]
+
+eps:0.1
+{'precision': array([0.72965921]), 'recall': array([0.68995409]), 'ndcg': array([0.81665432])}
+eps:0.2
+{'precision': array([0.72790202]), 'recall': array([0.68827446]), 'ndcg': array([0.8150082])}
+eps:0.3
+{'precision': array([0.72257721]), 'recall': array([0.68298031]), 'ndcg': array([0.81012845])}
+eps:0.4
+{'precision': array([0.70958466]), 'recall': array([0.67114283]), 'ndcg': array([0.79880057])}
+eps:0.5
+{'precision': array([0.68546326]), 'recall': array([0.64831906]), 'ndcg': array([0.77715327])}
+eps:0.6
+{'precision': array([0.64555378]), 'recall': array([0.61135268]), 'ndcg': array([0.73837242])}
+eps:0.7
+{'precision': array([0.54156017]), 'recall': array([0.5195386]), 'ndcg': array([0.62503189])}
+eps:0.8
+{'precision': array([0.21999468]), 'recall': array([0.2190146]), 'ndcg': array([0.24318363])}
+eps:0.9
+{'precision': array([0.02438765]), 'recall': array([0.02145078]), 'ndcg': array([0.02547216])}
+eps:1.0
+{'precision': array([0.00495208]), 'recall': array([0.00380055]), 'ndcg': array([0.0050469])}
+
+random_lgn_test:20
+eps:0
+{'precision': array([0.0757535]), 'recall': array([0.27034387]), 'ndcg': array([0.21015408])}
+eps:0.01
+{'precision': array([0.07572659]), 'recall': array([0.27001088]), 'ndcg': array([0.21001146])}
+eps:0.02
+{'precision': array([0.07521529]), 'recall': array([0.2677664]), 'ndcg': array([0.20937866])}
+eps:0.03
+{'precision': array([0.07502691]), 'recall': array([0.2678763]), 'ndcg': array([0.20954656])}
+eps:0.04
+{'precision': array([0.07416577]), 'recall': array([0.26353169]), 'ndcg': array([0.20644862])}
+eps:0.05
+{'precision': array([0.07343918]), 'recall': array([0.26031535]), 'ndcg': array([0.2035845])}
+eps:0.06
+{'precision': array([0.07185145]), 'recall': array([0.25570361]), 'ndcg': array([0.19867009])}
+eps:0.07
+{'precision': array([0.06972551]), 'recall': array([0.24791526]), 'ndcg': array([0.19072784])}
+eps:0.08
+{'precision': array([0.06622713]), 'recall': array([0.23587858]), 'ndcg': array([0.17895534])}
+eps:0.09
+{'precision': array([0.06154467]), 'recall': array([0.21976139]), 'ndcg': array([0.16451036])}
+eps:0.1
+{'precision': array([0.05522067]), 'recall': array([0.19731225]), 'ndcg': array([0.14546461])}
+
+precision=[0.0757535,0.07572659,0.07521529,0.07502691,0.07416577,0.07343918,0.07185145,0.06972551,0.06622713,0.06154467,0.05522067]
+recall=[0.27034387,0.27001088,0.2677664,0.2678763,0.26353169,0.26031535,0.25570361,0.24791526,0.23587858,0.21976139,0.19731225]
+ndcg=[0.21015408,0.21001146,0.20937866,0.20954656,0.20644862,0.2035845,0.19867009,0.19072784,0.17895534,0.16451036,0.14546461]
+
+atk_lgn_test:20
+eps:0
+{'precision': array([0.0757535]), 'recall': array([0.27034387]), 'ndcg': array([0.21015408])}
+eps:0.01
+{'precision': array([0.07567277]), 'recall': array([0.26946476]), 'ndcg': array([0.20940044])}
+eps:0.02
+{'precision': array([0.07543057]), 'recall': array([0.26790038]), 'ndcg': array([0.2090462])}
+eps:0.03
+{'precision': array([0.0742465]), 'recall': array([0.2638658]), 'ndcg': array([0.20626766])}
+eps:0.04
+{'precision': array([0.07311625]), 'recall': array([0.25990203]), 'ndcg': array([0.20244384])}
+eps:0.05
+{'precision': array([0.07023681]), 'recall': array([0.24943857]), 'ndcg': array([0.19256021])}
+eps:0.06
+{'precision': array([0.06423574]), 'recall': array([0.22705414]), 'ndcg': array([0.1758773])}
+eps:0.07
+{'precision': array([0.05694295]), 'recall': array([0.20036681]), 'ndcg': array([0.15141587])}
+eps:0.08
+{'precision': array([0.04714747]), 'recall': array([0.16277918]), 'ndcg': array([0.12148572])}
+eps:0.09
+{'precision': array([0.03651776]), 'recall': array([0.12541172]), 'ndcg': array([0.09233366])}
+eps:0.1
+{'precision': array([0.02790635]), 'recall': array([0.09441933]), 'ndcg': array([0.06781255])}
+
+precision=[0.0757535,0.07567277,0.07543057,0.0742465,0.07311625,0.07023681,0.06423574,0.05694295,0.04714747,0.03651776,0.02790635]
+recall=[0.27034387,0.26946476,0.26790038,0.2638658,0.25990203,0.24943857,0.22705414,0.20036681,0.16277918,0.12541172,0.09441933]
+ndcg=[0.21015408,0.20940044,0.2090462,0.20626766,0.20244384,0.19256021,0.1758773,0.15141587,0.12148572,0.09233366,0.06781255]
+
+atk_pureMF_train_100:
+eps:0
+{'precision': array([0.22382322]), 'recall': array([0.99820516]), 'ndcg': array([0.79164871])}
+eps:0.01
+{'precision': array([0.2236901]), 'recall': array([0.99774895]), 'ndcg': array([0.78783478])}
+eps:0.02
+{'precision': array([0.22336528]), 'recall': array([0.99658093]), 'ndcg': array([0.77948708])}
+eps:0.03
+{'precision': array([0.22272098]), 'recall': array([0.99426807]), 'ndcg': array([0.7664544])}
+eps:0.04
+{'precision': array([0.22124068]), 'recall': array([0.9887717]), 'ndcg': array([0.74827911])}
+eps:0.05
+{'precision': array([0.21831736]), 'recall': array([0.97762858]), 'ndcg': array([0.72401815])}
+eps:0.06
+{'precision': array([0.21353035]), 'recall': array([0.9588366]), 'ndcg': array([0.69291368])}
+eps:0.07
+{'precision': array([0.20731629]), 'recall': array([0.93372384]), 'ndcg': array([0.65485897])}
+eps:0.08
+{'precision': array([0.19960064]), 'recall': array([0.90260984]), 'ndcg': array([0.61301344])}
+eps:0.09
+{'precision': array([0.18977636]), 'recall': array([0.86261232]), 'ndcg': array([0.56527147])}
+eps:0.1
+{'precision': array([0.17576145]), 'recall': array([0.80390863]), 'ndcg': array([0.51059684])}
+eps:0.2
+{'precision': array([0.14266773]), 'recall': array([0.66226242]), 'ndcg': array([0.40548066])}
+eps:0.3
+{'precision': array([0.10593184]), 'recall': array([0.50240423]), 'ndcg': array([0.30184028])}
+eps:0.4
+{'precision': array([0.08775293]), 'recall': array([0.41988232]), 'ndcg': array([0.24930327])}
+eps:0.5
+{'precision': array([0.08104366]), 'recall': array([0.38414787]), 'ndcg': array([0.22582622])}
+
+-01-07-13h07m33s
+random_pureMF_train_100
+eps:[0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1]
+precision:[0.22382321618743342, 0.22382854100106497, 0.22382321618743342, 0.22383919062832802, 0.2238178913738019, 0.22378594249201278, 0.22371139510117147, 0.22359957401490949, 0.22350372736954208, 0.22335463258785943, 0.22308306709265174]
+recall:[0.9982051588751786, 0.9982217989177771, 0.9982045298067274, 0.9982649260858601, 0.9981898826564866, 0.9980775737137964, 0.9978209061690989, 0.9974100149662678, 0.9970549517263492, 0.9964856477677965, 0.9955305087106915]
+ndcg:[0.7916487076242531, 0.7915032915595105, 0.791338842707896, 0.7910257915243422, 0.7904559642719335, 0.79002438526935, 0.7899120125193866, 0.7892786844255834, 0.7875086478856195, 0.7851270536960658, 0.7827864237741313]

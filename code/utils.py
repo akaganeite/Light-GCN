@@ -17,6 +17,7 @@ from model import PairWiseModel
 from sklearn.metrics import roc_auc_score
 import random
 import os
+'''
 try:
     from cppimport import imp_from_filepath
     from os.path import join, dirname
@@ -28,6 +29,9 @@ except:
     world.cprint("Cpp extension not loaded")
     sample_ext = False
 
+'''
+sample_ext = False
+
 
 class BPRLoss:
     def __init__(self,
@@ -36,18 +40,22 @@ class BPRLoss:
         self.model = recmodel
         self.weight_decay = config['decay']
         self.lr = config['lr']
+        #所有的embedding由于是类变量，会被自动注册在类的parameters中，即self.embedding_user/_item的weight
         self.opt = optim.Adam(recmodel.parameters(), lr=self.lr)
 
-    def stageOne(self, users, pos, neg):
+    def stageOne(self, users, pos, neg):#训练的函数，一次正向传播一次反向传播，传入的参数都是2048个，即一个batch
+        '''
+        初步的攻击测试应该要在这个函数中做一做
+        '''
         loss, reg_loss = self.model.bpr_loss(users, pos, neg)
-        reg_loss = reg_loss*self.weight_decay
+        reg_loss = reg_loss*self.weight_decay#loss中的λ
         loss = loss + reg_loss
 
         self.opt.zero_grad()
         loss.backward()
         self.opt.step()
 
-        return loss.cpu().item()
+        return loss.cpu().item()#.item()返回tensor元素值
 
 
 def UniformSample_original(dataset, neg_ratio = 1):
@@ -55,8 +63,9 @@ def UniformSample_original(dataset, neg_ratio = 1):
     allPos = dataset.allPos
     start = time()
     if sample_ext:
-        S = sampling.sample_negative(dataset.n_users, dataset.m_items,
-                                     dataset.trainDataSize, allPos, neg_ratio)
+        '''
+        S = sampling.sample_negative(dataset.n_users, dataset.m_items,dataset.trainDataSize, allPos, neg_ratio)
+        '''
     else:
         S = UniformSample_original_python(dataset)
     return S
@@ -64,27 +73,28 @@ def UniformSample_original(dataset, neg_ratio = 1):
 def UniformSample_original_python(dataset):
     """
     the original impliment of BPR Sampling in LightGCN
+    sample一个epoch的数据，即所有的training data
     :return:
         np.array
     """
     total_start = time()
     dataset : BasicDataset
-    user_num = dataset.trainDataSize
-    users = np.random.randint(0, dataset.n_users, user_num)
-    allPos = dataset.allPos
+    user_num = dataset.trainDataSize#user-item对的个数
+    users = np.random.randint(0, dataset.n_users, user_num)#user_num个[0,n_users]的随机整数
+    allPos = dataset.allPos#array的列表，代表对应下标用户的positem
     S = []
     sample_time1 = 0.
     sample_time2 = 0.
     for i, user in enumerate(users):
         start = time()
-        posForUser = allPos[user]
+        posForUser = allPos[user]#该用户在训练集的posItem
         if len(posForUser) == 0:
             continue
         sample_time2 += time() - start
-        posindex = np.random.randint(0, len(posForUser))
-        positem = posForUser[posindex]
+        posindex = np.random.randint(0, len(posForUser))#在user的positem中随机选择一个
+        positem = posForUser[posindex]#获取随机选择的物品的值
         while True:
-            negitem = np.random.randint(0, dataset.m_items)
+            negitem = np.random.randint(0, dataset.m_items)#随机挑选negitem
             if negitem in posForUser:
                 continue
             else:
@@ -112,17 +122,17 @@ def getFileName():
         file = f"lgn-{world.dataset}-{world.config['lightGCN_n_layers']}-{world.config['latent_dim_rec']}.pth.tar"
     return os.path.join(world.FILE_PATH,file)
 
-def minibatch(*tensors, **kwargs):
-
-    batch_size = kwargs.get('batch_size', world.config['bpr_batch_size'])
-
-    if len(tensors) == 1:
+def minibatch(*tensors, **kwargs):#tensors接受一些数据，组成元组 **kwargs接受指定名的参数，组成字典
+    #**kwargs：{'batch_size': 2048}
+    batch_size = kwargs.get('batch_size', world.config['bpr_batch_size'])#返回batch_size:2048
+    #tensors是(users,posItems,negItems)的一个元组
+    if len(tensors) == 1:#len应该是3，代表users，positems，negitems
         tensor = tensors[0]
         for i in range(0, len(tensor), batch_size):
             yield tensor[i:i + batch_size]
     else:
-        for i in range(0, len(tensors[0]), batch_size):
-            yield tuple(x[i:i + batch_size] for x in tensors)
+        for i in range(0, len(tensors[0]), batch_size):#len(tensors[0])代表users的个数，和pos，neg应该是一样的数量
+            yield tuple(x[i:i + batch_size] for x in tensors)#返回一个minibatch的东西，以元组的形式返回
 
 
 def shuffle(*arrays, **kwargs):
@@ -272,6 +282,7 @@ def getLabel(test_data, pred_data):
     for i in range(len(test_data)):
         groundTrue = test_data[i]
         predictTopK = pred_data[i]
+        #print('gt',groundTrue,'topk',predictTopK)
         pred = list(map(lambda x: x in groundTrue, predictTopK))
         pred = np.array(pred).astype("float")
         r.append(pred)

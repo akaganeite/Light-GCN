@@ -7,12 +7,16 @@ from tensorboardX import SummaryWriter
 import time
 import Procedure
 from os.path import join
+import os
 # ==============================
 utils.set_seed(world.seed)
 print(">>SEED:", world.seed)
 # ==============================
 import register
 from register import dataset
+
+#log的路径和文件名
+log_dir='./log/test.txt'
 
 Recmodel = register.MODELS[world.model_name](world.config, dataset)
 Recmodel = Recmodel.to(world.device)
@@ -38,13 +42,19 @@ else:
     world.cprint("not enable tensorflowboard")
 
 try:
-    for epoch in range(world.TRAIN_epochs):
+    for epoch in range(world.TRAIN_epochs):#epoch循环
         start = time.time()
         if epoch %10 == 0:
             cprint("[TEST]")
             Procedure.Test(dataset, Recmodel, epoch, w, world.config['multicore'])
-        output_information = Procedure.BPR_train_original(dataset, Recmodel, bpr, epoch, neg_k=Neg_k,w=w)
-        print(f'EPOCH[{epoch+1}/{world.TRAIN_epochs}] {output_information}')
+        with utils.timer(name='Time:'):
+            output_information = Procedure.BPR_train_original(dataset, Recmodel, bpr, epoch, neg_k=Neg_k,w=w)#batch级循环
+        time_info = utils.timer.dict(select_keys=['Time:'])
+        utils.timer.zero()
+        #print(time_info)
+        print(f'EPOCH[{epoch+1}/{world.TRAIN_epochs}] {output_information}-{time_info}')
+        with open(log_dir,'a') as file:
+            file.write(f'EPOCH[{epoch+1}/{world.TRAIN_epochs}] {output_information}-{time_info}\n')
         torch.save(Recmodel.state_dict(), weight_file)
 finally:
     if world.tensorboard:

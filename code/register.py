@@ -3,7 +3,7 @@ import dataloader
 import model
 import utils
 from pprint import pprint
-
+#指定数据集
 if world.dataset in ['gowalla', 'yelp2018', 'amazon-book']:
     dataset = dataloader.Loader(path="../data/"+world.dataset)
 elif world.dataset == 'lastfm':
